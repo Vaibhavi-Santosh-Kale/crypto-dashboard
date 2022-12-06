@@ -1,5 +1,5 @@
 import React from "react";
-import Home from "./components/Home";
+import Content from "./components/Content"
 import Navbar from "./components/Navbar";
 
 
@@ -7,7 +7,7 @@ function Dashboard() {
   return (
     <>
       <Navbar/>
-      <Home/>
+      <Content/>
 
     </>
   );

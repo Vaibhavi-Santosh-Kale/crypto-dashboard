@@ -57,7 +57,7 @@ function MarketCap() {
     return (
         <div className='rounded-xl h-full w-[20rem] scr bg-white shadow-sm'>
             <span className='shadow-lg h-fit flex w-full font-bold justify-center p-2 text-xl border-gray-300 border-b-2 mb-4'>Crypto Market Cap</span>
-            <ul className='flex flex-col h-auto overflow-y-scroll'>
+            <ul className='flex flex-col h-full overflow-y-scroll'>
                 {itemlist.map(({ id, name, test1 }) => (
                     <span key={id} className='flex p-3 pr-10 border-b-2 justify-between'>
                         <span className='font-bold text-1xl text-gray-700 w-fit'>
