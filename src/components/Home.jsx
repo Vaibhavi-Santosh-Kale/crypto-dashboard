@@ -4,7 +4,7 @@ import Content from './Content'
 
 function Home() {
   return (
-    <div className='w-full h-screen text-8xl text-black bg-white'>
+    <div className='w-full h-screen text-black bg-white'>
         <Content/>
     </div>
   )
