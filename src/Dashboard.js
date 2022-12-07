@@ -1,6 +1,7 @@
 import React from "react";
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
+import Exchange from "./components/Exchange";
 
 
 function Dashboard() {
@@ -8,7 +9,8 @@ function Dashboard() {
     <>
       <Navbar/>
       <Home/>
-
+      <Exchange/>
+     
     </>
   );
 }
