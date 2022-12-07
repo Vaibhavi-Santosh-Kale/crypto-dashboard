@@ -4,8 +4,8 @@ import MarketCap from './MarketCap'
 function Content() {
   return (
     <>
-      <div className='flex w-full'>
-        <div className=' rounded-2xl h-full  bg-[#fafbff] p-10'>
+      <div className='flex mt-5 h-[90vh] w-screen p-12 '>
+        <div className='border-b-2 rounded-2xl bg-[#fafbff] h-full w-full p-8 '>
           <MarketCap/>
         </div>
       </div>
