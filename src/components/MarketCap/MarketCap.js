@@ -3004,13 +3004,13 @@ function MarketCap() {
     //     },
     // ];
     return (
-        <div className='select-none rounded-xl h-full min-w-fit w-[20vw] flex-row-2 bg-white shadow-sm hover:cursor-default' >
+        <div className='select-none rounded-xl h-full min-w-fit w-[20vw] flex-row-2 bg-white shadow-sm hover:cursor-default overflow-hidden' >
             <div className='flex justify-center h-[45px]  shadow-xl border-b-2 text-2xl p-1'>
                 <span>{"Cryptocurrency Market Cap"}</span>
             </div>
             <ul className='h-[calc(100%-45px)] overflow-y-scroll'>
                 {itemlist.map(({ id, image, market_cap, name , price_change_percentage_24h }) => (
-                    <span key={id} className='flex p-2 border-b-2 justify-between hover:scale-105 duration-200 hover:bg-gradient-to-r hover:from-cyan-50 hover:to-blue-300 hover:via-blue-200'>
+                    <span key={id} className='flex p-2 border-b-2 justify-between hover:scale-105 duration-200 hover:bg-gradient-to-r hover:from-cyan-50 hover:to-blue-300 hover:via-blue-200 hover:'>
 
                         <span className='flex font-bold text-1xl text-gray-700 w-fit'>
                             <img className='sm:h-8 sm:w-8 h-10 w-10 m-1 rounded-full' src={image} alt="Currency Logo" />
