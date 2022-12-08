@@ -1,8 +1,6 @@
 import React from "react";
-import MarketCap from "./components/MarketCap";
 import Navbar from "./components/Navbar";
-import Portfolio from "./components/Portfolio";
-import Exchange from "./components/Exchange";
+import Content from './components/Content'
 import "./Dashboard.css"
 
 
@@ -11,9 +9,7 @@ function Dashboard() {
     <>
 
       <Navbar/>
-      <MarketCap/>
-      <Portfolio/>
-      <Exchange/>
+      <Content/>
 
     </>
   );
