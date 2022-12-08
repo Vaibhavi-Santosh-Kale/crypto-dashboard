@@ -3,6 +3,7 @@ import MarketCap from './MarketCap/MarketCap'
 import Search from './Search/Search'
 import CurrencySelector from './CurrencySelector/CurrencySelector'
 import Portfolio from './Portfolio'
+import Exchange from './Exchange'
 
 function Content() {
   return (
@@ -28,7 +29,7 @@ function Content() {
                 <div className='flex h-full w-1/2'>
                   <Portfolio />
                 </div>
-                <div className='flex h-full w-1/2 justify-center items-center'>exchange coins block</div>
+                <div className='flex h-full w-1/2'><Exchange/></div>
               </div>
             </div>
           </div>
