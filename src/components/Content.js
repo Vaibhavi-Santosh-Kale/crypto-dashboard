@@ -2,7 +2,7 @@ import React from 'react'
 import MarketCap from './MarketCap/MarketCap'
 import Search from './Search/Search'
 import CurrencySelector from './CurrencySelector/CurrencySelector'
-import Portfolio from './Portfolio'
+// import Portfolio from './Portfolio'
 import Exchange from './Exchange'
 import ChartComponent from './Chart/ChartComponent'
 
@@ -28,7 +28,7 @@ function Content() {
               </div>
               <div className='flex h-1/3 w-full flex-row gap-6'>
                 <div className='flex h-full w-1/2'>
-                  <Portfolio />
+                  {/* <Portfolio /> */}
                 </div>
                 <div className='flex h-full w-1/2'>
                   <Exchange/>
