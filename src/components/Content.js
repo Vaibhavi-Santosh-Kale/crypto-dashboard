@@ -26,11 +26,11 @@ function Content() {
               <div className='flex h-2/3 justify-center items-center bg-white rounded-lg'>
                 <ChartComponent />
               </div>
-              <div className='flex h-1/3 w-full flex-row gap-6'>
+              <div className='flex h-1/3 w-full flex-row gap-6 '>
                 <div className='flex h-full w-1/2'>
                   <Portfolio />
                 </div>
-                <div className='flex h-full w-1/2'>
+                <div className='flex h-full w-1/2 '>
                   <Exchange/>
                 </div>
               </div>
