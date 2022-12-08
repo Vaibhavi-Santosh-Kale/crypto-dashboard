@@ -8,7 +8,7 @@ function Content() {
   return (
     <>
       <div className='h-[calc(100vh-60px)] w-screen p-12'>
-        <div className='flex gap-6 select-none border-b-2 rounded-2xl bg-[#fafbff] h-full w-full p-8 '>
+        <div className='flex flex-row gap-6 select-none border-b-2 rounded-2xl bg-[#fafbff] h-full w-full p-8 '>
           <div className='w-5/6 h-full flex flex-col gap-6'>
             <div className='flex gap-6 h-[45px] text-xl'>
               <div className='w-1/12'>
@@ -32,7 +32,9 @@ function Content() {
               </div>
             </div>
           </div>
-          <MarketCap />
+          <div>
+            <MarketCap />
+          </div>
         </div>
       </div>
     </>

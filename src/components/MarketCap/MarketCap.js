@@ -3004,7 +3004,7 @@ function MarketCap() {
     //     },
     // ];
     return (
-        <div className='select-none rounded-xl h-full min-w-fit w-[20vw] flex-row-2 bg-white shadow-sm hover:cursor-default overflow-hidden' >
+        <div className='select-none rounded-xl h-full min-w-fit w-full flex-row-2 bg-white shadow-sm hover:cursor-default overflow-hidden' >
             <div className='flex justify-center h-[45px]  shadow-xl border-b-2 text-2xl p-1'>
                 <span>{"Cryptocurrency Market Cap"}</span>
             </div>
