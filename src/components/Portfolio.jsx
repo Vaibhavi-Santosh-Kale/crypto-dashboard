@@ -15,7 +15,7 @@ const Portfolio = () => {
             <span className="text-xl font-bold"> $1000</span>
           </div>
         </div>
-        <div className="">
+        <div className="justify-center">
           {/* Pie Cart */}
           <Pie
             data={{
