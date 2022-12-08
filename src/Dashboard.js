@@ -1,16 +1,18 @@
 import React from "react";
-import Home from "./components/Home";
+import MarketCap from "./components/MarketCap";
 import Navbar from "./components/Navbar";
+import Portfolio from "./components/Portfolio";
 import Exchange from "./components/Exchange";
+
 
 
 function Dashboard() {
   return (
     <>
       <Navbar/>
-      <Home/>
+      <MarketCap/>
+      <Portfolio/>
       <Exchange/>
-     
     </>
   );
 }
