@@ -6,12 +6,12 @@ function Exchange() {
   return (
     <>
       <div className="flex flex-col h-full bg-white w-full rounded-md p-6 gap-2 justify-evenly min-w-fit">
-        <h1 className="text-xl font-bold">
+        <div className="text-xl font-bold">
           Exchange Coins
-        </h1>
+        </div>
         <div className="flex flex-col">
           <div className="flex flex-row">
-            <h4 className="w-[55%]"></h4>
+            <div className="w-[55%]"></div>
             <div className="h-full w-fit">
               <div className="w-full h-full text-gray-400 text-sm">
                 Enter Amount:

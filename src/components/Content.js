@@ -36,7 +36,7 @@ function Content() {
               </div>
             </div>
           </div>
-          <div className="w-[25%] min-w-fit sm:hidden">
+          <div className="w-[25%] min-w-fit ">
             <MarketCap />
           </div>
         </div>
