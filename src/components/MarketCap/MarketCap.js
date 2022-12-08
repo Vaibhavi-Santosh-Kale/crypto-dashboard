@@ -3004,7 +3004,7 @@ function MarketCap() {
     //     },
     // ];
     return (
-        <div className='rounded-xl h-full min-w-fit w-[20vw] flex-row-2 bg-white shadow-sm hover:cursor-default'>
+        <div className='select-none rounded-xl h-full min-w-fit w-[20vw] flex-row-2 bg-white shadow-sm hover:cursor-default' >
             <div className='flex justify-center h-[45px]  shadow-xl border-b-2 text-2xl p-1'>
                 <span>{"Cryptocurrency Market Cap"}</span>
             </div>
@@ -3024,7 +3024,7 @@ function MarketCap() {
                             </div>
                         </span>
                         <span className='flex my-auto w-20 mr-2 text-right'>
-                            <span className='flex m-1'>
+                            <span className='flex m-1  '>
                                 { price_change_percentage_24h < 0 ?<VscTriangleDown color='red' size={20}/> : <VscTriangleUp color='green' size={20}/>
                                 }
                                 </span>
