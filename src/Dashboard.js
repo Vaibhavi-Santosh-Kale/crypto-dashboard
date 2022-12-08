@@ -7,10 +7,7 @@ function Dashboard() {
   return (
     <>
       <Navbar />
-
       <Portfolio />
-
-      <Navbar />
       <Content />
     </>
   );
