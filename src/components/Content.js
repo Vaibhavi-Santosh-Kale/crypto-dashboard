@@ -29,7 +29,9 @@ function Content() {
                 <div className='flex h-full w-1/2'>
                   <Portfolio />
                 </div>
-                <div className='flex h-full w-1/2'><Exchange/></div>
+                <div className='flex h-full w-1/2'>
+                  <Exchange/>
+                </div>
               </div>
             </div>
           </div>

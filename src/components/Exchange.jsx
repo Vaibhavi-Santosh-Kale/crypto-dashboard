@@ -4,7 +4,7 @@ import React from 'react'
 function Exchange() {
   return (
     <>
-    <div className="bg-white  rounded-md">
+    <div className="bg-white w-full rounded-md">
         <h1 className="text-xl font-bold">Exchange Coins</h1>
       <div className="flex flex-col">
         <div className="flex justify-around">
