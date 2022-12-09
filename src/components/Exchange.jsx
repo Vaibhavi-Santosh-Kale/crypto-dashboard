@@ -1,10 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
+
 
 
 function Exchange() {
+
+const  handleChange=()=>{
+
+
+}
+  
+
   return (
-    <>
-    
+    <> 
+
     <div className="bg-white w-full rounded-md mt-3 ">
         <h1 className="text-xl font-bold my-2">Exchange Coins</h1>
       <div className="flex flex-col">
@@ -24,10 +32,10 @@ function Exchange() {
         </div>
       </div>
       <div className="flex justify-center pt-2">
-          <button className="bg-blue-600 py-1 px-4 rounded-md pl-3" >Exchange</button>
+          <button className="bg-blue-600 py-1 px-4 rounded-md pl-3" onClick={handleChange}>Exchange</button>
         </div>
     </div>
-    
+
     </>
   )
 }
