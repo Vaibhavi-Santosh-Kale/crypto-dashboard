@@ -4,11 +4,11 @@ import React from 'react'
 function Exchange() {
   return (
     <>
-    <div className="bg-white my-6 p-6 rounded-md">
+    <div className="bg-white w-full rounded-md">
         <h1 className="text-xl font-bold">Exchange Coins</h1>
       <div className="flex flex-col">
         <div className="flex justify-around">
-          <h4 className="text-orange-600 font-semibold text-xl" >Sell</h4>
+          <h4 className="text-orange-600 font-semibold text-xl " >Sell</h4>
           <select 
             name="currency"
             className="bg-slate-100 w-20 h-8 text-center text-lg font-semibold rounded-md list-item">
