@@ -1,15 +1,15 @@
 import React from "react";
 import Navbar from "./components/Navbar";
-import Content from './components/Content'
-import "./Dashboard.css"
 
+import "./Dashboard.css";
+import Content from "./components/Content";
 
 function Dashboard() {
   
   return (
     <>
-      <Navbar/>
-      <Content/>
+      <Navbar />
+      <Content />
     </>
   );
 }

@@ -1,10 +1,7 @@
-import React from 'react'
-import "./ChartComponent.css"
+import React from "react";
 
-function ChartComponent() {
-  return (
-    <div>ChartComponent</div>
-  )
-}
+const ChartComponent = () => {
+  return <div></div>;
+};
 
-export default ChartComponent
+export default ChartComponent;
