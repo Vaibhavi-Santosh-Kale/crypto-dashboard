@@ -42,7 +42,7 @@ function Exchange() {
         </div>
         <div className="flex flex-col">
           <div className="flex flex-row">
-            <h4 className="text-green-600 font-semibold text-xl h-fit my-auto w-[25%] justify-center pl-[10%]">
+            <h4 className="text-green-600 font-semibold text-xl h-fit my-auto w-[23%] justify-center pl-[10%]">
               Buy
             </h4>
             <div className="flex w-[30%]">
@@ -55,7 +55,7 @@ function Exchange() {
               </select>
             </div>
             <div className="h-full w-fit">
-              <div className="w-full h-full text-green-400">
+              <div className="w-full h-full text-green-400 mx-2">
                 {"{Exchange Coins block}"}
               </div>
             </div>
