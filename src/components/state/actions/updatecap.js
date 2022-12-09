@@ -1,8 +1,9 @@
 import { CAP } from "../../constants/actionTypes"
 
-const updatecap = () => {
+const updatecap = (data) => {
     return{
         type:CAP,
+        payload:data
     }
 }
 
