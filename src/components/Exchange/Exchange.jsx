@@ -30,7 +30,7 @@ function Exchange() {
                 <option>USD</option>
               </select>
             </div>
-            <div className="h-full w-fit">
+            <div className="h-full w-fit mx-2">
               <input
                 type="number"
                 min="0"

@@ -1,4 +1,4 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import "./Portfolio.css";
@@ -6,6 +6,18 @@ import "./Portfolio.css";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 function Portfolio() {
+  const [data, setData] = useState([]);
+
+  const apiGet = () => {
+    fetch("https://pro-api.coingecko.com/api/v3/")
+      .then((response) => response.json())
+      .then((json) => {
+        setData(json);
+      });
+  };
+  useEffect(() => {
+    apiGet();
+  }, []);
   return (
     <div>
       <div className="flex flex-col h-full bg-white w-full rounded-md p-6 gap-2 justify-evenly min-w-fit margin-bottom:2% ">
