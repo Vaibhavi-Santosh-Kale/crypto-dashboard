@@ -5,6 +5,7 @@ import "./Dashboard.css";
 import Content from "./components/Content";
 
 function Dashboard() {
+  
   return (
     <>
       <Navbar />

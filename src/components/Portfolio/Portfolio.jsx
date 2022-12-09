@@ -1,13 +1,14 @@
 import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Pie } from "react-chartjs-2";
+import "./Portfolio.css";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-const Portfolio = () => {
+function Portfolio() {
   return (
-    <>
-      <div className="bg-white p-6 rounded-md w-full">
+    <div>
+      <div className="flex flex-col h-full bg-white w-full rounded-md p-6 gap-2 justify-evenly min-w-fit margin-bottom:2% ">
         <div className="flex justify-between">
           <h1 className="text-xl font-bold">Portfolio</h1>
           <div className="flex items-center">
@@ -77,8 +78,8 @@ const Portfolio = () => {
           />
         </div>
       </div>
-    </>
+    </div>
   );
-};
+}
 
 export default Portfolio;
