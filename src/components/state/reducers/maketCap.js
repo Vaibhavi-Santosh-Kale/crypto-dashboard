@@ -1,7 +1,7 @@
 import {CAP} from "../../constants/actionTypes"
 // import axios from "axios";
 
-let STATE=[];    
+const STATE=[];    
 
 export const marketReducer = (state = STATE ,action)=>{
     switch (action.type){

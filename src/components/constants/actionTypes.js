@@ -1,1 +1,3 @@
 export const CAP= "CAP";
+export const SELECTCURRENCY="SELECTCURRENCY";
+export const ISMARKETLOADING="ISMARKETLOADING";
