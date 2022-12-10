@@ -1,12 +1,13 @@
-import {UPDATE_MARKET_CAP} from "../../constants/actionTypes"
+import {CAP} from "../../constants/actionTypes"
+// import axios from "axios";
 
-const INIT_STATE = [];
+let STATE=[];    
 
-const marketReducer = (state = INIT_STATE ,action)=>{
+export const marketReducer = (state = STATE ,action)=>{
     switch (action.type){
-        case UPDATE_MARKET_CAP:
+        case CAP:
             {
-                return [...INIT_STATE, action.payload];
+                return state=action.payload;
             }
         default:
             {

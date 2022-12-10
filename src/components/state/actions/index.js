@@ -1,3 +1,3 @@
-import updatemarket from "./maketCap";
+import updatecap from "./updatecap";
 
-export default updatemarket
+export default updatecap
