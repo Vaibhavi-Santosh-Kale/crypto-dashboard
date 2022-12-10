@@ -8,18 +8,23 @@ import { useDispatch } from "react-redux"
 import axios from "axios"
 import updatecap from "../state/actions/updatecap"
 import { useEffect } from "react"
+
 function MarketCap() {
 
     const store = useSelector((store) => store.marketCap)
     const dispatch = useDispatch();
+
     useEffect(() => {
-        async function fetchmarketdata() {
-            await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=1&sparkline=false").then((res) => {
-                dispatch(updatecap(res.data));
-            })
+        console.log("i am called");
+        fetchmarketdata();
+    }, []);
+
+    async function fetchmarketdata() {
+        await axios.get("https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=1&sparkline=false").then((res) => {
+            dispatch(updatecap(res.data));
+        })
     }
-    fetchmarketdata();
-    })
+    
     return (
         <div className='select-none rounded-xl h-full min-w-fit w-full flex-row-2 bg-white shadow-sm hover:cursor-default overflow-hidden' >
             <div className='flex justify-center h-[45px]  shadow-sm border-b-2 text-2xl p-1'>
