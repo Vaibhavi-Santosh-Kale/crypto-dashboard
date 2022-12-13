@@ -5,12 +5,13 @@ import CurrencySelector from "./CurrencySelector/CurrencySelector";
 // import Portfolio from "./Portfolio/Portfolio";
 import Exchange from "./Exchange/Exchange";
 import ChartComponent from "./Chart/ChartComponent";
-
+import { useSelector } from "react-redux";
 function Content() {
+  const isDark = useSelector((store)=>store.themereducer);
   return (
     <>
-      <div className="h-[calc(100vh-60px)] w-screen p-16 px-36 min-w-fit">
-        <div className="flex flex-row gap-6 select-none border-b-2 rounded-2xl bg-[#fafbff] h-full w-full p-6 ">
+      <div className={`h-[calc(100vh-60px)] w-screen p-16 px-36 min-w-fit ${isDark?"bg-black":"bg-white"}`}>
+        <div className={`flex flex-row gap-6 select-none rounded-2xl ${isDark?"bg-gray-800":"bg-[#fafbff]"}  h-full w-full p-6 `}>
           <div className="w-[75%] h-full flex flex-col gap-6">
             <div className="flex gap-6 h-[45px] text-xl">
               <div className="w-1/12 min-w-fit">
@@ -23,11 +24,11 @@ function Content() {
               </div>
             </div>
             <div className="h-[calc(100%-45px)] w-full flex flex-col gap-6">
-              <div className="flex h-2/3 justify-center items-center bg-white rounded-lg lg:hidden sm:hidden">
+              <div className={`flex h-2/3 justify-center items-center ${isDark?"bg-black":"bg-white"}  rounded-lg lg:hidden sm:hidden`}>
                 <ChartComponent />
               </div>
               <div className="flex h-2/3 w-full flex-row gap-6 ">
-                <div className="flex h-full w-1/2">
+                <div className={`flex h-full w-1/2 rounded-lg ${isDark?"bg-black":"bg-white"}`}>
                   {/* <Portfolio /> */}
                 </div>
                 <div className="flex h-full w-1/2 min-w-fit min-h-fit overflow-hidden">
