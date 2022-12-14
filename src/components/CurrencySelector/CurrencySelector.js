@@ -5,7 +5,7 @@ import updatecurr from '../state/actions/updatecurrency';
 
 
 function CurrencySelector() {
-    const list =["inr","eth","ltc","bch","bnb","eos","xrp","xlm","link","dot","yfi","usd","aed","ars","aud","bdt","bhd","bmd","brl","cad","chf","clp","cny","czk","dkk","eur","gbp",
+    const list =["inr","eth","ltc","bch","bnb","eos","xrp","xlm","dot","yfi","usd","aed","ars","aud","bdt","bhd","bmd","brl","cad","chf","clp","cny","czk","dkk","eur","gbp",
     "hkd","huf","idr","ils","jpy","krw","kwd","lkr","mmk","mxn","myr","ngn","nok","nzd","php","pkr","pln","rub","sar","sek","sgd","thb","try","twd","uah","vef","vnd","zar","xdr",
     "xag","xau","bits","sats"];
     const state = useSelector((store) => store.updatecurr);

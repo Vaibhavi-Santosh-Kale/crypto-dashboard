@@ -1,7 +1,37 @@
-import React from "react";
+import React from 'react'
+import { useSelector } from 'react-redux'
+import Button from '../Button';
+import { MdDateRange } from "react-icons/md"
 
-const ChartComponent = () => {
-  return <div></div>;
-};
+function ChartComponent() {
+  const isDark = useSelector((state) => state.themereducer);
+  return (
+    <div className={`flex flex-col h-full w-full rounded-lg ${isDark ? "bg-black text-white" : "bg-white text-black"} p-4 gap-2`}>
+      <div className='h-12 flex flex-row items-center justify-center gap-5'>
+        <div className='h-full w-full flex flex-row gap-3 justify-end items-center'>
+          <Button value="1D" />
+          <Button value="1W" />
+          <Button value="1M" />
+          <Button value="6M" />
+          <Button value="1Y" />
+          <Button value={<MdDateRange size={24} color="slate" />} />
 
-export default ChartComponent;
+        </div>
+        <div className='h-full w-full flex flex-row items-center justify-around'>
+          <div className='h-full outline outline-1 outline-gray-500 rounded-lg flex items-center justify-center'>
+            i am for cryptocurrency type selection
+          </div>
+          <div className='h-full outline outline-1 outline-gray-500 rounded-lg flex items-center justify-center'>
+            i am for chart type selection
+          </div>
+        </div>
+      </div>
+      <div className='h-full'>
+        Yes i am a chart component its still on deveploment
+      </div>
+
+    </div>
+  )
+}
+
+export default ChartComponent

@@ -24,7 +24,7 @@ function Content() {
               </div>
             </div>
             <div className="h-[calc(100%-45px)] w-full flex flex-col gap-6">
-              <div className={`flex h-2/3 justify-center items-center ${isDark?"bg-black":"bg-white"}  rounded-lg lg:hidden sm:hidden`}>
+              <div className={`flex h-2/3 justify-center items-center rounded-lg lg:hidden sm:hidden`}>
                 <ChartComponent />
               </div>
               <div className="flex h-2/3 w-full flex-row gap-6 ">
