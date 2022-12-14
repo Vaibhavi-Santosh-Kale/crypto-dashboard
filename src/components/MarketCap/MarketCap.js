@@ -14,6 +14,7 @@ function MarketCap() {
     const isLoading = useSelector((store) => store.marketloadingreducer);
     const curr = useSelector((store) => store.updatecurr);
     const isDark = useSelector((store)=>store.themereducer);
+    const search = useSelector((store)=>store.searchreducer);
 
     useEffect(() => {
         dispatch(marketloadchange(true));
@@ -50,8 +51,12 @@ function MarketCap() {
                         <div className="animate-pulse">
                             { isDark?<img className="h-16 w-16" src={Loading} alt="Loading..." />:<img className="h-16 w-16" src={LoadingWhite} alt="Loading..." />}
                         </div>
-                    </div> : store.map(({ id, image, market_cap, name, price_change_percentage_24h, current_price}) => (     
-                        <span key={id} className='flex p-2 border-b-2 justify-between hover:scale-105 duration-200 hover:bg-gradient-to-r h-fit hover:from-cyan-50 hover:to-blue-300 hover:via-blue-200 hover:h-40' onClick={(event)=>{event.currentTarget.classList.toggle("h-40")}}>
+                    </div> : 
+                    
+                    
+                    store.map(({ id, image, market_cap, name, price_change_percentage_24h, current_price}) => (
+                        
+                        <span key={id} className={`p-2 border-b-2 justify-between ${name.toLowerCase().startsWith(search)?"flex":"hidden"} hover:scale-105 duration-200 hover:bg-gradient-to-r h-fit hover:from-cyan-50 hover:to-blue-300 hover:via-blue-200 hover:h-40`} onClick={(event)=>{event.currentTarget.classList.toggle("h-40")}}>
 
                             <span className='flex font-bold text-1xl text-gray-700 w-fit'>
                                 <img className='sm:h-8 sm:w-8 h-10 w-10 m-1 rounded-full' src={image} alt="Currency Logo" />
