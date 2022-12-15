@@ -1,4 +1,5 @@
-import React, {useState} from "react";
+import React,{useState} from "react";
+import { useSelector } from "react-redux";
 import "./Exchange.css";
 
 
@@ -8,14 +9,17 @@ const [change , setChange]=useState("")
 
 const hendleClick=()=>{
 
+     
 }
 
 const hendleBuyChange=(e)=>{
-    setChange(e.target.value)
+  setChange(e.target.value)
+   
 
 }
 
-const hendleShellChange=()=>{
+const hendleShellChange=(e)=>{
+  setChange(e.target.value)
     
 
 }
