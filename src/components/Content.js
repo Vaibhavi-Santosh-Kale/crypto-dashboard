@@ -2,7 +2,7 @@ import React from "react";
 import MarketCap from "./MarketCap/MarketCap";
 import Search from "./Search/Search";
 import CurrencySelector from "./CurrencySelector/CurrencySelector";
-import Portfolio from "./Portfolio/Portfolio";
+// import Portfolio from "./Portfolio/Portfolio";
 import Exchange from "./Exchange/Exchange";
 import ChartComponent from "./Chart/ChartComponent";
 import { useSelector } from "react-redux";
@@ -28,9 +28,6 @@ function Content() {
                 <ChartComponent />
               </div>
               <div className="flex h-2/3 w-full flex-row gap-6 ">
-
-                <div className="flex h-full w-1/2">
-                  <Portfolio />
                 <div className={`flex h-full w-1/2 rounded-lg ${isDark?"bg-black":"bg-white"}`}>
                   {/* <Portfolio /> */}
                 </div>
@@ -46,8 +43,7 @@ function Content() {
         </div>
       </div>
     </>
-  )
+  );
 }
-
 
 export default Content;
