@@ -7,7 +7,6 @@ import "./Exchange.css";
 function Exchange() {
 const [Sell , setSell]=useState("")
 
-
 const [Buy , setBuy]=useState("")
 
 const hendleClick=()=>{
