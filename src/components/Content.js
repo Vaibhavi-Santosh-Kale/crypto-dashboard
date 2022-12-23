@@ -24,7 +24,7 @@ function Content() {
             <div className="flex gap-6 h-[45px] text-xl">
               <div className="w-1/12 min-w-fit">
                 <div className="w-full h-full min-w-min overflow-hidden">
-                  <CurrencySelector />
+                  <CurrencySelector  />
                 </div>
               </div>
               <div className="w-11/12">

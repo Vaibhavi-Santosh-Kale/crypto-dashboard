@@ -1,27 +1,28 @@
 import React,{useState} from "react";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 import "./Exchange.css";
 
 
 
 function Exchange() {
-const [change , setChange]=useState("")
+const [Sell , setSell]=useState("")
+
+
+const [Buy , setBuy]=useState("")
 
 const hendleClick=()=>{
-
-     
+  setBuy(Sell)
+  setSell(Buy)
 }
 
 const hendleBuyChange=(e)=>{
-  setChange(e.target.value)
-   
 
+  setBuy(e.target.value)
 }
 
 const hendleShellChange=(e)=>{
-  setChange(e.target.value)
-    
-
+  
+  setSell(e.target.value) 
 }
   return (
     <>
@@ -39,16 +40,18 @@ const hendleShellChange=(e)=>{
         </div>
         <div className="flex flex-col">
           <div className="flex flex-row">
-            <h4 className="text-orange-600 font-semibold text-xl h-fit my-auto w-[25%] justify-center pl-[10%]" value={change} onChange={hendleShellChange}>
+            <h4 className="text-orange-600 font-semibold text-xl h-fit my-auto w-[25%] justify-center pl-[10%]">
               Sell
             </h4>
             <div className="flex w-[30%]">
               <select
                 name="currency"
                 className="bg-slate-200 w-36 h-8 text-center text-lg font-semibold rounded-md list-item"
+                value={Sell} onChange={hendleShellChange}
               >
                 <option>INR</option>
                 <option>USD</option>
+             
               </select>
             </div>
             <div className="h-full w-fit mx-2">
@@ -63,16 +66,18 @@ const hendleShellChange=(e)=>{
         </div>
         <div className="flex flex-col">
           <div className="flex flex-row">
-            <h4 className="text-green-600 font-semibold text-xl h-fit my-auto w-[22.5%] justify-center pl-[10%]" value={change} onChange={hendleBuyChange}>
+            <h4 className="text-green-600 font-semibold text-xl h-fit my-auto w-[22.5%] justify-center pl-[10%]">
               Buy
             </h4>
             <div className="flex w-[30%]">
               <select
                 name="currency"
                 className="bg-slate-200 w-36 h-8 text-center text-lg font-semibold rounded-md list-item"
+                value={Buy} onChange={hendleBuyChange}
               >
                 <option>INR</option>
                 <option>USD</option>
+                
               </select>
             </div>
             <div className="h-full w-fit">
