@@ -1,28 +1,24 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 // import { useSelector } from "react-redux";
 import "./Exchange.css";
 
-
-
 function Exchange() {
-const [Sell , setSell]=useState("")
+  const [Sell, setSell] = useState("");
 
-const [Buy , setBuy]=useState("")
+  const [Buy, setBuy] = useState("");
 
-const hendleClick=()=>{
-  setBuy(Sell)
-  setSell(Buy)
-}
+  const hendleClick = () => {
+    setBuy(Sell);
+    setSell(Buy);
+  };
 
-const hendleBuyChange=(e)=>{
+  const hendleBuyChange = (e) => {
+    setBuy(e.target.value);
+  };
 
-  setBuy(e.target.value)
-}
-
-const hendleShellChange=(e)=>{
-  
-  setSell(e.target.value) 
-}
+  const hendleShellChange = (e) => {
+    setSell(e.target.value);
+  };
   return (
     <>
       <div className="flex flex-col h-full bg-white w-full rounded-md p-6 gap-2 justify-evenly min-w-fit">
@@ -46,11 +42,11 @@ const hendleShellChange=(e)=>{
               <select
                 name="currency"
                 className="bg-slate-200 w-36 h-8 text-center text-lg font-semibold rounded-md list-item"
-                value={Sell} onChange={hendleShellChange}
+                value={Sell}
+                onChange={hendleShellChange}
               >
                 <option>INR</option>
                 <option>USD</option>
-             
               </select>
             </div>
             <div className="h-full w-fit mx-2">
@@ -72,11 +68,11 @@ const hendleShellChange=(e)=>{
               <select
                 name="currency"
                 className="bg-slate-200 w-36 h-8 text-center text-lg font-semibold rounded-md list-item"
-                value={Buy} onChange={hendleBuyChange}
+                value={Buy}
+                onChange={hendleBuyChange}
               >
                 <option>INR</option>
                 <option>USD</option>
-                
               </select>
             </div>
             <div className="h-full w-fit">
@@ -87,7 +83,10 @@ const hendleShellChange=(e)=>{
           </div>
         </div>
         <div className="flex justify-center h-full">
-          <button className="hover:scale-105 duration-300 bg-gradient-to-tr from-cyan-400 to-blue-600 via-cyan-500 rounded-lg text-lg font-bold h-12 w-32" onClick={hendleClick}>
+          <button
+            className="hover:scale-105 duration-300 bg-gradient-to-tr from-cyan-400 to-blue-600 via-cyan-500 rounded-lg text-lg font-bold h-12 w-32"
+            onClick={hendleClick}
+          >
             Exchange
           </button>
         </div>

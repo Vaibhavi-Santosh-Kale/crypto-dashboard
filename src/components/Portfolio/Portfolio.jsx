@@ -43,10 +43,10 @@ const Portfolio = () => {
         type="pie"
         width={400}
         height={550}
-        series={[23, 43, 50, 65]}
+        series={[23, 43, 50, 52, 45]}
         options={{
           noData: { text: "Empty Data" },
-          labels: ["Bitcoin", "Ethereum", "Tether", "Polygon"],
+          labels: ["Bitcoin", "Ethereum", "Tether", "Polygon", "Cardano"],
         }}
       ></Chart>
     </div>
