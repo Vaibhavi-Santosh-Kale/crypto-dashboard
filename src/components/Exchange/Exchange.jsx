@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import "./Exchange.css";
+
 
 function Exchange() {
   const [Sell, setSell] = useState("");
-
+  const isDark = useSelector((state) => state.themereducer);
   const [Buy, setBuy] = useState("");
 
   const hendleClick = () => {
@@ -21,7 +22,8 @@ function Exchange() {
   };
   return (
     <>
-      <div className="flex flex-col h-full bg-white w-full rounded-md p-6 gap-2 justify-evenly min-w-fit">
+      <div className={`flex flex-col h-full w-full rounded-lg ${isDark ? "bg-black text-white" : "bg-white text-black"
+        } p-4 gap-2`}>
         <div className="text-xl font-bold">Exchange Coins</div>
         <div className="flex flex-col">
           <div className="flex flex-row">
@@ -61,7 +63,7 @@ function Exchange() {
         </div>
         <div className="flex flex-col">
           <div className="flex flex-row">
-            <h4 className="text-green-600 font-semibold text-xl h-fit my-auto w-[22.5%] justify-center pl-[10%]">
+            <h4 className="text-green-600 font-semibold text-xl h-fit my-auto w-[25%] justify-center pl-[10%]">
               Buy
             </h4>
             <div className="flex w-[30%]">
@@ -82,7 +84,7 @@ function Exchange() {
             </div>
           </div>
         </div>
-        <div className="flex justify-center h-full">
+        <div className="flex justify-center h-full items-center">
           <button
             className="hover:scale-105 duration-300 bg-gradient-to-tr from-cyan-400 to-blue-600 via-cyan-500 rounded-lg text-lg font-bold h-12 w-32"
             onClick={hendleClick}
