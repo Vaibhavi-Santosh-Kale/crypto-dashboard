@@ -6,6 +6,7 @@ import "./Exchange.css";
 function Exchange() {
   const [Sell, setSell] = useState("");
   const isDark = useSelector((state) => state.themereducer);
+  const portfolio= useSelector((state)=>state.portfolio_reducer);
   const [Buy, setBuy] = useState("");
 
   const hendleClick = () => {
@@ -47,8 +48,11 @@ function Exchange() {
                 value={Sell}
                 onChange={hendleShellChange}
               >
-                <option>INR</option>
-                <option>USD</option>
+                {portfolio.map(({name})=>
+                  <option>
+                    {name}
+                  </option>
+                )}
               </select>
             </div>
             <div className="h-full w-fit mx-2">
