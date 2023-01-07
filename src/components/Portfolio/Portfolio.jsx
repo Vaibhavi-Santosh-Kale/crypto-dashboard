@@ -7,8 +7,14 @@ import "./Portfolio.css";
 const Portfolio = () => {
   const isDark = useSelector((state) => state.themereducer);
   const data=useSelector((state)=>state.portfolio_reducer);
+  // const price = useSelector((state)=>state.marketCap);
   const lab=data.map(({name})=>(name));
-  const ser=data.map(({amount})=>(amount));
+  const ser=data.map(({name,amount})=>(
+    // (((price.find((data)=>data.name===name))).current_price)*amount
+    amount
+    
+  ));
+  
 
   return (
     <div

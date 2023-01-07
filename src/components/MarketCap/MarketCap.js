@@ -26,7 +26,6 @@ function MarketCap() {
     async function fetchmarketdata() {
         await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=${curr}&order=market_cap_desc&per_page=100&page=1&sparkline=false`).then((response) => {
             dispatch(updatecap(response.data));
-            (response.data).map(({name})=>console.log(name));
             dispatch(marketloadchange(false));
             console.log("i am async called");
         }).catch((error) => {

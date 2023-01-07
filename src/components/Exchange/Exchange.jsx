@@ -1,26 +1,32 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React from "react";
+import { useSelector ,useDispatch} from "react-redux";
+// import { BUYSTATE, SELLSTATE } from "../constants/actionTypes";
+import { buy_state, sell_state } from "../state/actions/exchange";
 import "./Exchange.css";
 
 
 function Exchange() {
-  const [Sell, setSell] = useState("");
+  // const [Sell, setSell] = useState("");
   const isDark = useSelector((state) => state.themereducer);
   const portfolio= useSelector((state)=>state.portfolio_reducer);
-  const [Buy, setBuy] = useState("");
+  const sell = useSelector((state)=>state.sell_reducer);
+  const buy = useSelector((state)=>state.buy_reducer);
+  const buyList = useSelector((state) => state.marketCap)
+  const dispatch = useDispatch();
+  // const [Buy, setBuy] = useState("");
 
-  const hendleClick = () => {
-    setBuy(Sell);
-    setSell(Buy);
-  };
+  // const hendleClick = () => {
+  //   setBuy(Sell);
+  //   setSell(Buy);
+  // };
 
-  const hendleBuyChange = (e) => {
-    setBuy(e.target.value);
-  };
+  // const hendleBuyChange = (e) => {
+  //   setBuy(e.target.value);
+  // };
 
-  const hendleShellChange = (e) => {
-    setSell(e.target.value);
-  };
+  // const hendleShellChange = (e) => {
+  //   setSell(e.target.value);
+  // };
   return (
     <>
       <div className={`flex flex-col h-full w-full rounded-lg ${isDark ? "bg-black text-white" : "bg-white text-black"
@@ -45,11 +51,11 @@ function Exchange() {
               <select
                 name="currency"
                 className="bg-slate-200 w-36 h-8 text-center text-lg font-semibold rounded-md list-item"
-                value={Sell}
-                onChange={hendleShellChange}
+                value={sell}
+                onChange={(event)=>dispatch(sell_state(event.target.value))}
               >
                 {portfolio.map(({name})=>
-                  <option>
+                  <option key={name} value={name}>
                     {name}
                   </option>
                 )}
@@ -59,7 +65,7 @@ function Exchange() {
               <input
                 type="number"
                 min="0"
-                placeholder={"Avl Bal"}
+                placeholder={"Avl Bal :"+ ((portfolio.find((data)=>data.name===sell)).amount)}
                 className="w-full h-full rounded-md border-2 pl-3"
               />
             </div>
@@ -74,11 +80,18 @@ function Exchange() {
               <select
                 name="currency"
                 className="bg-slate-200 w-36 h-8 text-center text-lg font-semibold rounded-md list-item"
-                value={Buy}
-                onChange={hendleBuyChange}
+                value={buy}
+                onChange={(event)=>dispatch(buy_state(event.target.value))}
               >
-                <option>INR</option>
-                <option>USD</option>
+                {/* <option>INR</option>
+                <option>USD</option> */}
+                {buyList.map(({name})=>
+                  sell!==name&&
+                  <option key={name} value={name}>
+                    {name}
+                  </option>
+                )}
+
               </select>
             </div>
             <div className="h-full w-fit">
@@ -91,8 +104,7 @@ function Exchange() {
         <div className="flex justify-center h-full items-center">
           <button
             className="hover:scale-105 duration-300 bg-gradient-to-tr from-cyan-400 to-blue-600 via-cyan-500 rounded-lg text-lg font-bold h-12 w-32"
-            onClick={hendleClick}
-          >
+            >
             Exchange
           </button>
         </div>

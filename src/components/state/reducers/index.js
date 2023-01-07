@@ -5,6 +5,7 @@ import { marketloadingreducer } from "./marketloadingreducer"
 import {themereducer} from "./theme"
 import {searchreducer} from "./search"
 import { portfolio_reducer } from "./portfolio"
+import { buy_reducer,sell_reducer } from "./exchange"
 
 const rootReducer = combineReducers({
     marketCap:marketReducer,
@@ -12,7 +13,10 @@ const rootReducer = combineReducers({
     marketloadingreducer,
     themereducer,
     searchreducer,
-    portfolio_reducer
+    portfolio_reducer,
+    buy_reducer,
+    sell_reducer
+
 })
 
 export default rootReducer
