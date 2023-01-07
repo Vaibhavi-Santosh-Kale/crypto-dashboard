@@ -1,6 +1,6 @@
 import { SELLSTATE,BUYSTATE } from "../../constants/actionTypes";
 
-const INIT_SELLSTATE = "USD";
+const INIT_SELLSTATE = "Select";
 const INIT_BUYSTATE = "Select";
 
 
