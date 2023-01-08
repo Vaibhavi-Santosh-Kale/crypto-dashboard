@@ -6,26 +6,16 @@ import "./Portfolio.css";
 
 const Portfolio = () => {
   const isDark = useSelector((state) => state.themereducer);
-  // const [coinName, setCoinName] = useState([]);
-  // const [coinNumber, setCoinNumber] = useState([]);
+  const port=useSelector((state)=>state.portfolio_reducer);
+  // const price = useSelector((state)=>state.marketCap);
+  const lab=port.map(({name})=>(name));
+  const ser=port.map(({name,amount})=>(
+    // (((price.find((data)=>data.name===name))).current_price)*amount
+    amount
+    
+  ));
+  
 
-  // useEffect(() => {
-  //   const coinName = [];
-  //   const coinNumber = [];
-  //   const getCoindata = async () => {
-  //     const reqData = await fetch("");
-  //     const resData = await reqData.json();
-  //     for (let i = 0; i < resData.length; i++) {
-  //       coinName.push(resData[i].name);
-  //       coinNumber.push(parseInt(resData[i].number));
-  //     }
-  //     setCoinName(coinName);
-  //     setCoinNumber(coinNumber);
-  //     //console.log(resData);
-  //   };
-
-  //   getCoindata();
-  // }, []);
   return (
     <div
       className={`flex flex-col h-full w-full rounded-lg ${
@@ -40,13 +30,20 @@ const Portfolio = () => {
         </div>
       </div>
       <Chart
+      
         type="pie"
         width={400}
         height={550}
-        series={[23, 43, 50, 52, 45]}
+        series={ser}
         options={{
           noData: { text: "Empty Data" },
-          labels: ["Bitcoin", "Ethereum", "Tether", "Polygon", "Cardano"],
+          labels: lab,
+          dataLabels: {
+            style: {
+              colors: ['#0a0a0a']
+            }
+          }
+          
         }}
       ></Chart>
     </div>
