@@ -1,10 +1,13 @@
 import React from "react";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { useSelector } from "react-redux";
 // import React, { useState, useEffect } from "react";
-import Chart from "react-apexcharts";
-import "./Portfolio.css";
 
-const Portfolio = () => {
+import "./Portfolio.css";
+import { Pie } from "react-chartjs-2";
+ChartJS.register(ArcElement, Tooltip, Legend);
+
+function Portfolio() {
   const isDark = useSelector((state) => state.themereducer);
   // const [coinName, setCoinName] = useState([]);
   // const [coinNumber, setCoinNumber] = useState([]);
@@ -39,18 +42,30 @@ const Portfolio = () => {
           <span className="text-xl font-bold">$1000</span>
         </div>
       </div>
-      <Chart
-        type="pie"
-        width={400}
-        height={550}
-        series={[23, 43, 50, 52, 45]}
-        options={{
-          noData: { text: "Empty Data" },
-          labels: ["Bitcoin", "Ethereum", "Tether", "Polygon", "Cardano"],
+      <Pie
+        data={{
+          labels: ["Tether", "Ethereum", "Bitcoin"],
+          datasets: [
+            {
+              label: "PortFolio",
+              data: [250, 400, 350],
+              backgroundColor: [
+                "#14C38E",
+                "rgb(54, 162, 235)",
+                "rgb(255, 99, 132)",
+              ],
+              borderColor: [
+                "#14C38E",
+                "rgb(54, 162, 235)",
+                "rgb(255, 99, 132)",
+              ],
+              borderWidth: 1,
+            },
+          ],
         }}
-      ></Chart>
+      />
     </div>
   );
-};
+}
 
 export default Portfolio;
