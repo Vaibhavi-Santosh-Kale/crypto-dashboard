@@ -1,6 +1,6 @@
 import { CHANGETHEME } from "../../constants/actionTypes";
 
-const STATE = true;
+const STATE = false;
 
 export const themereducer = (state = STATE, action) => {
     switch (action.type) {

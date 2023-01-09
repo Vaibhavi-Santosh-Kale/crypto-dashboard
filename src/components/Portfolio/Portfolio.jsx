@@ -1,34 +1,21 @@
 import React from "react";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
-import { useSelector } from "react-redux";
-// import React, { useState, useEffect } from "react";
-
 import "./Portfolio.css";
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
 import { Pie } from "react-chartjs-2";
-ChartJS.register(ArcElement, Tooltip, Legend);
+import { useSelector } from "react-redux";
 
+ChartJS.register(ArcElement, Tooltip, Legend, Title);
 function Portfolio() {
   const isDark = useSelector((state) => state.themereducer);
-  // const [coinName, setCoinName] = useState([]);
-  // const [coinNumber, setCoinNumber] = useState([]);
+  const port = useSelector((state) => state.portfolio_reducer);
+  // const price = useSelector((state)=>state.marketCap);
+  const lab = port.map(({ name }) => name);
+  const ser = port.map(
+    ({ name, amount }) =>
+      // (((price.find((data)=>data.name===name))).current_price)*amount
+      amount
+  );
 
-  // useEffect(() => {
-  //   const coinName = [];
-  //   const coinNumber = [];
-  //   const getCoindata = async () => {
-  //     const reqData = await fetch("");
-  //     const resData = await reqData.json();
-  //     for (let i = 0; i < resData.length; i++) {
-  //       coinName.push(resData[i].name);
-  //       coinNumber.push(parseInt(resData[i].number));
-  //     }
-  //     setCoinName(coinName);
-  //     setCoinNumber(coinNumber);
-  //     //console.log(resData);
-  //   };
-
-  //   getCoindata();
-  // }, []);
   return (
     <div
       className={`flex flex-col h-full w-full rounded-lg ${
@@ -42,30 +29,36 @@ function Portfolio() {
           <span className="text-xl font-bold">$1000</span>
         </div>
       </div>
-      <Pie
-        data={{
-          labels: ["Tether", "Ethereum", "Bitcoin"],
-          datasets: [
-            {
-              label: "PortFolio",
-              data: [250, 400, 350],
-              backgroundColor: [
-                "#14C38E",
-                "rgb(54, 162, 235)",
-                "rgb(255, 99, 132)",
-              ],
-              borderColor: [
-                "#14C38E",
-                "rgb(54, 162, 235)",
-                "rgb(255, 99, 132)",
-              ],
-              borderWidth: 1,
+      <div className="piechart" style={{ width: "85%", height: "100%" }}>
+        <Pie
+          data={{
+            datasets: [
+              {
+                data: [10, 20, 30, 40],
+                backgroundColor: ["red", "blue", "Orange", "green"],
+              },
+            ],
+
+            // These labels appear in the legend and in the tooltips when hovering different arcs
+            labels: ["Tether", "Luna", "Ethereum", "Bitcoin"],
+          }}
+          options={{
+            maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: true,
+                position: "right",
+                labels: {
+                  usePointStyle: true,
+                  pointStyle: "circle",
+                  // boxWidth: 5
+                },
+              },
             },
-          ],
-        }}
-      />
+          }}
+        />
+      </div>
     </div>
   );
 }
-
 export default Portfolio;
