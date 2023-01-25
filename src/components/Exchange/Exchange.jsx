@@ -39,7 +39,7 @@ function Exchange() {
           <div className="flex flex-row">
             <div className="w-[55%]"></div>
             <div className="h-full w-fit">
-              <div className="w-full h-full text-gray-400 text-sm">
+              <div className="w-full h-full text-gray-100 text-sm">
                 Enter Amount:
               </div>
             </div>
@@ -112,7 +112,7 @@ function Exchange() {
             </div>
             <div className="h-full w-fit">
               <div className="w-full h-full text-green-400 mx-2">
-                {"{Exchange Coins block}"}
+                {"0.00"}
               </div>
             </div>
           </div>
@@ -126,6 +126,7 @@ function Exchange() {
           </button>
         </div>
       </div>
+      
     </>
   );
 }
