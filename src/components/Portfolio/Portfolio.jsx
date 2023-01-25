@@ -1,10 +1,27 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Portfolio.css";
-import { Chart as ChartJS, ArcElement, Tooltip, Legend, Title } from "chart.js";
+import { Chart as ChartJS, registerables } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { useSelector } from "react-redux";
 
-ChartJS.register(ArcElement, Tooltip, Legend, Title);
+ChartJS.register(...registerables);
+
+const options = {
+  responsive: true,
+  plugins: {
+    legend: {
+      display: true,
+      position: "right",
+      labels: {
+        pointStyleWidth: 10,
+        usePointStyle: true,
+        pointStyle: "circle",
+        padding: 10,
+      },
+    },
+  },
+};
+
 function Portfolio() {
   const isDark = useSelector((state) => state.themereducer);
   const port = useSelector((state) => state.portfolio_reducer);
@@ -16,6 +33,72 @@ function Portfolio() {
       amount
   );
 
+  const [totalVolume, setTotalVolume] = useState("");
+  const [data, setData] = useState({
+    labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [12, 19, 3, 5, 2, 3],
+        backgroundColor: [
+          "rgba(255, 99, 132, 0.2)",
+          "rgba(54, 162, 235, 0.2)",
+          "rgba(255, 206, 86, 0.2)",
+        ],
+        borderColor: [
+          "rgba(255, 99, 132, 1)",
+          "rgba(54, 162, 235, 1)",
+          "rgba(255, 206, 86, 1)",
+        ],
+        borderWidth: 1,
+      },
+    ],
+  });
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=tether%2Cethereum%2Cbitcoin&order=market_cap_desc`;
+      const labelSet = [];
+      const dataSet1 = [];
+      await fetch(url)
+        .then((data) => {
+          // console.log("Api data", data)
+          const res = data.json();
+          return res;
+        })
+        .then((res) => {
+          // console.log("ressss", res)
+          for (const val of res) {
+            dataSet1.push(val.market_cap);
+            labelSet.push(val.name);
+          }
+          // console.log("dataset1" ,dataSet1)
+          setData({
+            labels: labelSet,
+            datasets: [
+              {
+                label: dataSet1,
+                data: dataSet1,
+                backgroundColor: ["#0077b6", "#ef476f", "#00afb9"],
+                borderColor: ["white"],
+                borderWidth: 0,
+                hoverOffset: 10,
+                hoverBorderWidth: 4,
+              },
+            ],
+          });
+          // console.log("arrData", dataSet1)
+          setTotalVolume(
+            dataSet1.reduce((partialSum, a) => partialSum + a, 0).toFixed(0)
+          );
+        })
+        .catch((e) => {
+          // console.log("error", e)
+        });
+    };
+    fetchData();
+  }, []);
+
   return (
     <div
       className={`flex flex-col h-full w-full rounded-lg ${
@@ -26,37 +109,18 @@ function Portfolio() {
         <h1 className="text-xl font-bold">Portfolio</h1>
         <div className="flex items-center">
           <h4 className="text-sm font-light">Total Value</h4>
-          <span className="text-xl font-bold">$1000</span>
+          {/* <span className="text-xl font-bold">$1000</span> */}
         </div>
+        <span className="text-xs font-semibold text-gray-100">
+          {" "}
+          {new Intl.NumberFormat("en-IN", {
+            style: "currency",
+            currency: "usd",
+          }).format(totalVolume)}
+        </span>
       </div>
-      <div className="piechart" style={{ width: "85%", height: "100%" }}>
-        <Pie
-          data={{
-            datasets: [
-              {
-                data: [10, 20, 30, 40],
-                backgroundColor: ["red", "blue", "Orange", "green"],
-              },
-            ],
-
-            // These labels appear in the legend and in the tooltips when hovering different arcs
-            labels: ["Tether", "Luna", "Ethereum", "Bitcoin"],
-          }}
-          options={{
-            maintainAspectRatio: false,
-            plugins: {
-              legend: {
-                display: true,
-                position: "right",
-                labels: {
-                  usePointStyle: true,
-                  pointStyle: "circle",
-                  // boxWidth: 5
-                },
-              },
-            },
-          }}
-        />
+      <div className="piechart" style={{ width: "95%", height: "100%" }}>
+        <Pie data={data} options={options} />
       </div>
     </div>
   );
