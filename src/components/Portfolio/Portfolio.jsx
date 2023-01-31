@@ -77,7 +77,7 @@ function Portfolio() {
             labels: labelSet,
             datasets: [
               {
-                label: [],
+                label:[],
                 data: dataSet1,
                 backgroundColor: ["#0077b6", "#ef476f", "#00afb9"],
                 borderColor: ["white"],
