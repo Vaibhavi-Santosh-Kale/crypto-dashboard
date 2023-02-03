@@ -22,6 +22,8 @@ const options = {
   },
 };
 
+let total_value = 0;
+
 function Portfolio() {
   const isDark = useSelector((state) => state.themereducer);
   const port = useSelector((state) => state.portfolio_reducer);
@@ -67,9 +69,8 @@ function Portfolio() {
         .then((res) => {
           // console.log("ressss", res)
           for (const val of res) {
+            total_value += val.current_price;
             dataSet1.push(val.current_price);
-            dataSet1.push(val.current_price);
-
             labelSet.push(val.name);
           }
           // console.log("dataset1" ,dataSet1)
@@ -111,7 +112,7 @@ function Portfolio() {
         <h1 className="text-xl font-bold">Portfolio</h1>
         <div className="flex items-center">
           <h4 className="text-sm font-light">Total Value</h4>
-          <span className="text-xl font-bold">$1000</span>
+          <span className="text-xl font-bold">${total_value}</span>
         </div>
       </div>
       <div className="piechart" style={{ width: "95%", height: "100%" }}>
