@@ -18,7 +18,7 @@ const options = {
         pointStyleWidth: 10,
         usePointStyle: true,
         pointStyle: "circle",
-        padding: 10,
+        padding: 20,
       },
     },
   },
@@ -46,8 +46,6 @@ function Portfolio() {
     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
     datasets: [
       {
-        label: "# of Votes",
-        data: [12, 19, 3, 5, 2, 3],
         backgroundColor: [
           "rgba(255, 99, 132, 0.2)",
           "rgba(54, 162, 235, 0.2)",
@@ -77,7 +75,7 @@ function Portfolio() {
         })
         .then((res) => {
           // console.log("ressss", res)
-          for (const val of res) {  
+          for (const val of res) {
              dataSet1.push(val.current_price);
             labelSet.push(val.name);
           }
@@ -86,7 +84,9 @@ function Portfolio() {
             labels: labelSet,
             datasets: [
               {
-                label:[],
+                label: [],
+
+                label: [],
                 data: dataSet1,
                 backgroundColor: ["#0077b6", "#ef476f", "#00afb9"],
                 borderColor: ["white"],
@@ -117,16 +117,9 @@ function Portfolio() {
       <div className="flex justify-between">
         <h1 className="text-xl font-bold">Portfolio</h1>
         <div className="flex items-center">
-          <h4 className="text-sm font-light">Total Value : </h4>
-          <span className="text-xl font-bold"> $ {totalVolume}</span>
+          <h4 className="text-sm font-light">Total Value</h4>
+          {/* <span className="text-xl font-bold">$1000</span> */}
         </div>
-        <span className="text-xs font-semibold text-gray-100">
-          {" "}
-          {new Intl.NumberFormat("en-IN", {
-            style: "currency",
-            currency: "usd",
-          }).format(totalVolume)}
-        </span>
       </div>
       <div className="piechart" style={{ width: "95%", height: "100%" }}>
         <Pie data={data} options={options} />
