@@ -68,6 +68,8 @@ function Portfolio() {
           // console.log("ressss", res)
           for (const val of res) {
             dataSet1.push(val.current_price);
+            dataSet1.push(val.current_price);
+
             labelSet.push(val.name);
           }
           // console.log("dataset1" ,dataSet1)
@@ -75,6 +77,8 @@ function Portfolio() {
             labels: labelSet,
             datasets: [
               {
+                label: [],
+
                 label: [],
                 data: dataSet1,
                 backgroundColor: ["#0077b6", "#ef476f", "#00afb9"],
