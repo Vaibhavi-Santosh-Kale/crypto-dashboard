@@ -6,6 +6,8 @@ import { useSelector } from "react-redux";
 
 ChartJS.register(...registerables);
 
+
+
 const options = {
   responsive: true,
   plugins: {
@@ -22,6 +24,10 @@ const options = {
   },
 };
 
+
+let total_value=0;
+
+
 function Portfolio() {
   const isDark = useSelector((state) => state.themereducer);
   const port = useSelector((state) => state.portfolio_reducer);
@@ -32,6 +38,8 @@ function Portfolio() {
       // (((price.find((data)=>data.name===name))).current_price)*amount
       amount
   );
+
+  
 
   const [totalVolume, setTotalVolume] = useState("");
   const [data, setData] = useState({
@@ -55,6 +63,7 @@ function Portfolio() {
     ],
   });
 
+ 
   useEffect(() => {
     const fetchData = async () => {
       const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=tether%2Cethereum%2Cbitcoin&order=market_cap_desc`;
@@ -68,7 +77,7 @@ function Portfolio() {
         })
         .then((res) => {
           // console.log("ressss", res)
-          for (const val of res) {
+          for (const val of res) {  
              dataSet1.push(val.current_price);
             labelSet.push(val.name);
           }
@@ -108,8 +117,8 @@ function Portfolio() {
       <div className="flex justify-between">
         <h1 className="text-xl font-bold">Portfolio</h1>
         <div className="flex items-center">
-          <h4 className="text-sm font-light">Total Value</h4>
-          {/* <span className="text-xl font-bold">$1000</span> */}
+          <h4 className="text-sm font-light">Total Value : </h4>
+          <span className="text-xl font-bold"> $ {totalVolume}</span>
         </div>
         <span className="text-xs font-semibold text-gray-100">
           {" "}
