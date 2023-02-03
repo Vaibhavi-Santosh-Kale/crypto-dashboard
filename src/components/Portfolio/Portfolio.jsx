@@ -40,16 +40,7 @@ function Portfolio() {
     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
     datasets: [
       {
-        backgroundColor: [
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-        ],
-        borderColor: [
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-        ],
+        data: [],
         borderWidth: 1,
       },
     ],
@@ -71,6 +62,7 @@ function Portfolio() {
           for (const val of res) {
             total_value += val.current_price;
             dataSet1.push(val.current_price);
+
             labelSet.push(val.name);
           }
           // console.log("dataset1" ,dataSet1)
@@ -78,8 +70,6 @@ function Portfolio() {
             labels: labelSet,
             datasets: [
               {
-                label: [],
-
                 label: [],
                 data: dataSet1,
                 backgroundColor: ["#0077b6", "#ef476f", "#00afb9"],
@@ -112,8 +102,13 @@ function Portfolio() {
         <h1 className="text-xl font-bold">Portfolio</h1>
         <div className="flex items-center">
           <h4 className="text-sm font-light">Total Value</h4>
-          <span className="text-xl font-bold">${total_value}</span>
         </div>
+        <span>
+          {new Intl.NumberFormat("en-IN", {
+            style: "currency",
+            currency: "usd",
+          }).format(totalVolume)}
+        </span>
       </div>
       <div className="piechart" style={{ width: "95%", height: "100%" }}>
         <Pie data={data} options={options} />
