@@ -1,7 +1,8 @@
-import React from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { buy_state, sell_state } from "../state/actions/exchange";
 import { portfolio_update } from "../state/actions/portfolio";
+import { fetchCoinList } from "../../redux/action";
 import "./Exchange.css";
 
 function Exchange() {
@@ -12,6 +13,7 @@ function Exchange() {
   const buy = useSelector((state) => state.buy_reducer);
   const buyList = useSelector((state) => state.marketCap);
   const dispatch = useDispatch();
+
   // const [Buy, setBuy] = useState("");
 
   // const hendleClick = () => {
@@ -111,9 +113,7 @@ function Exchange() {
               </select>
             </div>
             <div className="h-full w-fit">
-              <div className="w-full h-full text-green-400 mx-2">
-                {"0.00"}
-              </div>
+              <div className="w-full h-full text-green-400 mx-2">{"0.00"}</div>
             </div>
           </div>
         </div>
@@ -126,7 +126,6 @@ function Exchange() {
           </button>
         </div>
       </div>
-      
     </>
   );
 }
