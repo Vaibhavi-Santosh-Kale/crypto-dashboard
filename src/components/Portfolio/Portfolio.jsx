@@ -22,7 +22,7 @@ const options = {
   },
 };
 
-let total_value = 0;
+
 
 function Portfolio() {
   const isDark = useSelector((state) => state.themereducer);
@@ -60,7 +60,7 @@ function Portfolio() {
         .then((res) => {
           // console.log("ressss", res)
           for (const val of res) {
-            total_value += val.current_price;
+            // total_value += val.current_price;
             dataSet1.push(val.current_price);
 
             labelSet.push(val.name);
@@ -101,7 +101,7 @@ function Portfolio() {
       <div className="flex justify-between">
         <h1 className="text-xl font-bold">Portfolio</h1>
         <div className="flex items-center">
-          <h4 className="text-sm font-light">Total Value</h4>
+          <h4 className="text-sm font-light">${totalVolume}</h4>
         </div>
         <span>
           {new Intl.NumberFormat("en-IN", {
