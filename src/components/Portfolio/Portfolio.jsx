@@ -99,7 +99,7 @@ function Portfolio() {
       <div className="flex justify-between">
         <h1 className="text-xl font-bold">Portfolio</h1>
         <div className="flex items-center">
-          <h1 className="text-sm font-bold">Total value: </h1>
+          <h1 className="text-xl font-bold">Total value: </h1>
         </div>
         <span>
           {new Intl.NumberFormat("en-IN", {
