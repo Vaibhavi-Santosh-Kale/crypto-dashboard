@@ -100,6 +100,8 @@ function Portfolio() {
         <h1 className="text-xl font-bold">Portfolio</h1>
         <div className="flex items-center">
           <h4 className="text-sm font-bold">Total value: </h4>
+
+          <h1 className="text-sm font-light">Total value: </h1>
         </div>
         <span>
           {new Intl.NumberFormat("en-IN", {
