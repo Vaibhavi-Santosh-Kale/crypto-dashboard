@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { buy_state, sell_state } from "../state/actions/exchange";
 import { portfolio_update } from "../state/actions/portfolio";
-import { fetchCoinList } from "../../redux/action";
+
 import "./Exchange.css";
 
 function Exchange() {
@@ -12,6 +12,7 @@ function Exchange() {
   const sell = useSelector((state) => state.sell_reducer);
   const buy = useSelector((state) => state.buy_reducer);
   const buyList = useSelector((state) => state.marketCap);
+  const sellList=useSelector((state)=> state.marketCap)
   const dispatch = useDispatch();
 
   // const [Buy, setBuy] = useState("");
@@ -59,10 +60,11 @@ function Exchange() {
                 value={sell}
                 onChange={(event) => dispatch(sell_state(event.target.value))}
               >
-                <option selected="true" hidden>
+                <option value="" selected="true" hidden>
                   Select
                 </option>
-                {portfolio.map(({ name }) => (
+                {sellList.map(({ name }) =>
+                buy !==name && (
                   <option key={name} value={name}>
                     {name}
                   </option>
@@ -95,7 +97,7 @@ function Exchange() {
                 name="currency"
                 className="bg-slate-200 w-36 h-8 text-center text-lg font-semibold rounded-md list-item"
                 value={buy}
-                onChange={(event) => dispatch(buy_state(event.target.value))}
+                onChange={(event) => dispatch(buy_state(event.target.value))}  
               >
                 {/* <option>INR</option>
                 <option>USD</option> */}
@@ -120,7 +122,7 @@ function Exchange() {
         <div className="flex justify-center h-full items-center">
           <button
             className="hover:scale-105 duration-300 bg-gradient-to-tr from-cyan-400 to-blue-600 via-cyan-500 rounded-lg text-lg font-bold h-12 w-32"
-            // onClick={()=>dispatch(portfolio_update({name:buy,amount:5}))}
+            onClick={()=>dispatch(portfolio_update({name:buy,amount:5}))}
           >
             Exchange
           </button>
