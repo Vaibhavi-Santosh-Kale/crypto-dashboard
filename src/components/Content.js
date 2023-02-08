@@ -9,6 +9,8 @@ import { useSelector } from "react-redux";
 function Content() {
   const isDark = useSelector((store) => store.themereducer);
   return (
+
+  
     <>
       <div
         className={`h-[calc(100vh-60px)] w-screen p-16 px-36 min-w-fit ${
