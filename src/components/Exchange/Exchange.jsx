@@ -80,7 +80,7 @@ function Exchange() {
                   sell === "Select"
                     ? "Select to Sell"
                     : "Avl Bal :" +
-                      portfolio.find((data) => data.name === sell).amount
+                      sellList.find((data) => data.name === sell).amount
                 }
                 className="w-full h-full rounded-md border-2 pl-3"
               />
