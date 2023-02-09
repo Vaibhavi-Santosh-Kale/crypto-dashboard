@@ -42,7 +42,7 @@ function Exchange() {
           <div className="flex flex-row">
             <div className="w-[55%]"></div>
             <div className="h-full w-fit">
-              <div className="w-full h-full text-black-100 text-sm">
+              <div className="w-full h-full text-black-100 text-sm text-xl font-bold">
                    Enter Amount:
               </div>
             </div>
