@@ -3,24 +3,7 @@ import "./Portfolio.css";
 import { Chart as ChartJS, registerables } from "chart.js";
 import { Pie } from "react-chartjs-2";
 import { useSelector } from "react-redux";
-
 ChartJS.register(...registerables);
-
-const options = {
-  responsive: true,
-  plugins: {
-    legend: {
-      display: true,
-      position: "right",
-      labels: {
-        pointStyleWidth: 10,
-        usePointStyle: true,
-        pointStyle: "circle",
-        padding: 20,
-      },
-    },
-  },
-};
 
 function Portfolio() {
   const isDark = useSelector((state) => state.themereducer);
@@ -32,6 +15,26 @@ function Portfolio() {
       // (((price.find((data)=>data.name===name))).current_price)*amount
       amount
   );
+
+  const options = {
+    responsive: true,
+    maintainAspectRatio: false,
+    animations: {
+      animationScale: true,
+    },
+    plugins: {
+      legend: {
+        display: true,
+        position: "right",
+        labels: {
+          usePointStyle: true,
+          pointStyleWidth: 10,
+          pointStyle: "circle",
+          padding: 20,
+        },
+      },
+    },
+  };
 
   const [totalVolume, setTotalVolume] = useState("");
   const [data, setData] = useState({
@@ -48,7 +51,7 @@ function Portfolio() {
     const fetchData = async () => {
       const url = `https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&ids=tether%2Cethereum%2Cbitcoin&order=market_cap_desc`;
       const labelSet = [];
-      const dataSet1 = [];
+      const dataSet = [];
       await fetch(url)
         .then((data) => {
           // console.log("Api data", data)
@@ -59,7 +62,7 @@ function Portfolio() {
           // console.log("ressss", res)
           for (const val of res) {
             // total_value += val.current_price;
-            dataSet1.push(val.current_price);
+            dataSet.push(val.current_price);
 
             labelSet.push(val.name);
           }
@@ -69,7 +72,7 @@ function Portfolio() {
             datasets: [
               {
                 label: [],
-                data: dataSet1,
+                data: dataSet,
                 backgroundColor: ["#0077b6", "#ef476f", "#00afb9"],
                 borderColor: ["white"],
                 borderWidth: 0,
@@ -80,7 +83,7 @@ function Portfolio() {
           });
           // console.log("arrData", dataSet1)
           setTotalVolume(
-            dataSet1.reduce((partialSum, a) => partialSum + a, 0).toFixed(0)
+            dataSet.reduce((partialSum, a) => partialSum + a, 0).toFixed(0)
           );
         })
         .catch((e) => {
