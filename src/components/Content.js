@@ -3,9 +3,10 @@ import MarketCap from "./MarketCap/MarketCap";
 import Search from "./Search/Search";
 import CurrencySelector from "./CurrencySelector/CurrencySelector";
 import Portfolio from "./Portfolio/Portfolio";
-import Exchange from "./Exchange/Exchange";
+// import ExchangeCoins  from "./Exchange/ExchangeCoins";
 import ChartComponent from "./Chart/ChartComponent";
 import { useSelector } from "react-redux";
+import { ExchangeCoins } from "./Exchange/ExchangeCoins";
 function Content() {
   const isDark = useSelector((store) => store.themereducer);
   return (
@@ -48,7 +49,7 @@ function Content() {
                   <Portfolio />
                 </div>
                 <div className="flex h-full w-1/2 min-w-fit min-h-fit overflow-hidden">
-                  <Exchange />
+                  <ExchangeCoins />
                 </div>
               </div>
             </div>
