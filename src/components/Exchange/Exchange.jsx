@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { buy_state, sell_state } from "../state/actions/exchange";
 // import { portfolio_update } from "../state/actions/portfolio";
@@ -54,7 +54,7 @@ function Exchange() {
             <div className="w-[55%]"></div>
             <div className="h-full w-fit">
               <div className="w-full h-full text-black-100 text-sm">
-                   Enter Amount:
+                  Enter Amount:
               </div>
             </div>
           </div>
@@ -93,7 +93,7 @@ function Exchange() {
                   sell === "Select"
                     ? "Select to Sell"
                     : "Avl Bal :" +
-                      sellList.find((data) => data.name === sell).amount
+                      sellList.find((data) => data.name === sell)
                 }
                 className="w-full h-full rounded-md border-2 pl-3"
               />
