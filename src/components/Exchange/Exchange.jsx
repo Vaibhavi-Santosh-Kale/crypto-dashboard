@@ -6,7 +6,7 @@ import { buy_state, sell_state } from "../state/actions/exchange";
 import "./Exchange.css";
 
 function Exchange() {
-  // const [Sell, setSell] = useState("");
+
   const isDark = useSelector((state) => state.themereducer);
   // const portfolio = useSelector((state) => state.portfolio_reducer);
   const sell = useSelector((state) => state.sell_reducer);
@@ -18,21 +18,7 @@ function Exchange() {
   const [text, setText]=useState("")
   const [output, setOutput]=useState(0)
 
-  // const [Buy, setBuy] = useState("");
-
-  // const hendleClick = () => {
-  //   setBuy(Sell);
-  //   setSell(Buy);
-  // };
-
-  // const hendleBuyChange = (e) => {
-  //   setBuy(e.target.value);
-  // };
-
-  // const hendleShellChange = (e) => {
-  //   setSell(e.target.value);
-  // };
-
+  
 
   const convert=()=>{
 
