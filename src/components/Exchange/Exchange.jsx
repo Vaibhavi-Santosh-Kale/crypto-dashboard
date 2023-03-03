@@ -6,9 +6,9 @@ import { buy_state, sell_state } from "../state/actions/exchange";
 import "./Exchange.css";
 
 function Exchange() {
-
-  const isDark = useSelector((state) => state.themereducer);
+  
   // const portfolio = useSelector((state) => state.portfolio_reducer);
+  const isDark = useSelector((state) => state.themereducer);
   const sell = useSelector((state) => state.sell_reducer);
   const buy = useSelector((state) => state.buy_reducer);
   const buyList = useSelector((state) => state.marketCap);
@@ -98,8 +98,7 @@ function Exchange() {
                 value={buy}
                 onChange={(event) => dispatch(buy_state(event.target.value))}  
               >
-                {/* <option>INR</option>
-                <option>USD</option> */}
+
                 <option value="" selected="true" hidden>
                   Select
                 </option>
