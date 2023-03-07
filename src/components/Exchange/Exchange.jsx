@@ -20,10 +20,10 @@ function Exchange() {
 
   
 
-  const convert=()=>{
-
-    let result =( buy_state / sell_state)*text;
   
+
+  const convert=()=>{
+    let result =( buy_state / sell_state)*text;
     setOutput(result)
   }
 
