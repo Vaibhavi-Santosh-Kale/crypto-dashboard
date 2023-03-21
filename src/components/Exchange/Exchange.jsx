@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { buy_state, sell_state } from "../state/actions/exchange";
-// import { portfolio_update } from "../state/actions/portfolio";
+
 import { fetchCoinList } from "../../redux/action";
 import "./Exchange.css";
 
 function Exchange() {
-  // const portfolio = useSelector((state) => state.portfolio_reducer);
+  
   const isDark = useSelector((state) => state.themereducer);
   const sell = useSelector((state) => state.sell_reducer);
   const buy = useSelector((state) => state.buy_reducer);
@@ -15,9 +14,9 @@ function Exchange() {
   const exchangeData = useSelector((state) => state.exchange);
   const dispatch = useDispatch();
 
-  const [text1, settext1] = useState("");
-  const [value1, setvalue1] = useState(1);
-  const [value2, setvalue2] = useState(1);
+  const [amount, setAmount] = useState("");
+  const [sellValue, setSellValue] = useState(1);
+  const [buyValue, setBuyValue] = useState(1);
   const [text2, settext2] = useState(1);
   const [units, setUnits] = useState([]);
   const coin = exchangeData.coinList.rates;
@@ -32,12 +31,12 @@ function Exchange() {
 
   const convert = () => {
     const unit = Object.values(coin).find((unit) => {
-      return unit.value == value2;
+      return unit.value == buyValue;
     });
 
     console.log("value", Object.values(coin));
     setUnits(unit.unit);
-    let result = (value2 / value1) * text1;
+    let result = (buyValue / sellValue) * amount;
     settext2(result);
   };
 
@@ -68,8 +67,8 @@ function Exchange() {
               <select
                 name="currency"
                 className="bg-slate-200 w-36 h-8 text-center text-lg font-semibold rounded-md list-item"
-                //value={sell}
-                onChange={(e) => setvalue1(e.target.value)}
+
+                onChange={(e) => setSellValue(e.target.value)}
               >
                 <option value="" selected="true" hidden>
                   Select
@@ -86,8 +85,8 @@ function Exchange() {
               <input
                 type="number"
                 min="0"
-                value={text1 || ""}
-                onChange={(e) => settext1(e.target.value)}
+                value={amount || ""}
+                onChange={(e) => setAmount(e.target.value)}
                 disabled={sell === "Select"}
                 placeholder={"Enter Amount"}
                 className="w-full h-full rounded-md border-2 pl-3"
@@ -104,20 +103,12 @@ function Exchange() {
               <select
                 name="currency"
                 className="bg-slate-200 w-36 h-8 text-center text-lg font-semibold rounded-md list-item"
-                //value={buy}
-                onChange={(e) => setvalue2(e.target.value)}
+              
+                onChange={(e) => setBuyValue(e.target.value)}
               >
                 <option value="" selected="true" hidden>
                   Select
                 </option>
-                {/* {buyList.map(
-({ name }) =>
-sell !== name && (
-<option key={name} value={name}>
-{name}
-</option>
-)
-)} */}
                 {coin &&
                   Object.values(coin).map((d, k) => (
                     <option key={k} value={d.value} className="text-gray-600">
@@ -136,7 +127,7 @@ sell !== name && (
         <div className="flex justify-center h-full items-center">
           <button
             className="hover:scale-105 duration-300 bg-gradient-to-tr from-cyan-400 to-blue-600 via-cyan-500 rounded-lg text-lg font-bold h-12 w-32"
-            // onClick={()=>dispatch(portfolio_update({name:buy,amount:5}))}
+
             onClick={() => convert()}
           >
             Exchange
