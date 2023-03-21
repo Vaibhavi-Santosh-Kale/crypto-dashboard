@@ -1,27 +1,20 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-
 import { fetchCoinList } from "../../redux/action";
 import "./Exchange.css";
 
 function Exchange() {
-  
   const isDark = useSelector((state) => state.themereducer);
   const sell = useSelector((state) => state.sell_reducer);
-  const buy = useSelector((state) => state.buy_reducer);
-  const buyList = useSelector((state) => state.marketCap);
-  const sellList = useSelector((state) => state.marketCap);
   const exchangeData = useSelector((state) => state.exchange);
   const dispatch = useDispatch();
 
   const [amount, setAmount] = useState("");
   const [sellValue, setSellValue] = useState(1);
   const [buyValue, setBuyValue] = useState(1);
-  const [text2, settext2] = useState(1);
+  const [output, setOutput] = useState(1);
   const [units, setUnits] = useState([]);
   const coin = exchangeData.coinList.rates;
-
-  console.log("convert", coin);
 
   useEffect(() => {
     if (exchangeData.coinList.length === 0) {
@@ -34,10 +27,10 @@ function Exchange() {
       return unit.value == buyValue;
     });
 
-    console.log("value", Object.values(coin));
+    // console.log("value", Object.values(coin));
     setUnits(unit.unit);
     let result = (buyValue / sellValue) * amount;
-    settext2(result);
+    setOutput(result);
   };
 
   return (
@@ -67,7 +60,6 @@ function Exchange() {
               <select
                 name="currency"
                 className="bg-slate-200 w-36 h-8 text-center text-lg font-semibold rounded-md list-item"
-
                 onChange={(e) => setSellValue(e.target.value)}
               >
                 <option value="" selected="true" hidden>
@@ -103,7 +95,6 @@ function Exchange() {
               <select
                 name="currency"
                 className="bg-slate-200 w-36 h-8 text-center text-lg font-semibold rounded-md list-item"
-              
                 onChange={(e) => setBuyValue(e.target.value)}
               >
                 <option value="" selected="true" hidden>
@@ -119,7 +110,7 @@ function Exchange() {
             </div>
             <div className="h-full w-fit">
               <div className="w-full h-full text-green-400 mx-2">
-                {parseFloat(text2).toFixed(2)} {units}
+                {parseFloat(output).toFixed(2)} {units}
               </div>
             </div>
           </div>
@@ -127,7 +118,6 @@ function Exchange() {
         <div className="flex justify-center h-full items-center">
           <button
             className="hover:scale-105 duration-300 bg-gradient-to-tr from-cyan-400 to-blue-600 via-cyan-500 rounded-lg text-lg font-bold h-12 w-32"
-
             onClick={() => convert()}
           >
             Exchange
