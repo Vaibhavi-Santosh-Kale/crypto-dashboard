@@ -19,9 +19,9 @@ function ChartComponent() {
   const coinList = useSelector((state) => state.marketCap);
   const [historicData, setHistoricData] = useState([]);
   const [chartSelector, setChartSelector] = useState("line");
-  const [days, setDays] = useState(1);
+  const [days, setDays] = useState("1");
   const currencySelector = useSelector((state) => state.updatecurr);
-  const [cointofetch, setCoinToFetch] = useState("Bitcoin");
+  const [cointofetch, setCoinToFetch] = useState("bitcoin");
   console.log(cointofetch);
 
 
@@ -52,20 +52,20 @@ function ChartComponent() {
     >
       <div className="h-12 flex flex-row items-center justify-center gap-5">
         <div className="h-full w-full flex flex-row gap-3 justify-end items-center">
-          <Button value="1D"></Button>
-          <Button value="1W"></Button>
-          <Button value="1M"></Button>
-          <Button value="6M"></Button>
-          <Button value="1Y"></Button>
-          <Button value={<MdDateRange size={24} color="slate" />} />
+          <Button value="1D" day={setDays} dayVal={1}></Button>
+          <Button value="1W" day={setDays} dayVal={7}></Button>
+          <Button value="1M" day={setDays} dayVal={30}></Button>
+          <Button value="6M" day={setDays} dayVal={180}></Button>
+          <Button value="1Y" day={setDays} dayVal={365}></Button>
+          
         </div>
         <div className="h-full w-full flex flex-row items-center justify-around">
-          <select className="h-full outline outline-1 outline-gray-500 rounded-lg flex items-center justify-center" onChange={(event) => { setCoinToFetch(event.target.value) }}>
+          <select className={`group flex justify-between ${isDark?"bg-black text-white":"bg-white"} rounded-lg shadow-sm p-2 w-fit uppercase outline-none`} onChange={(event) => { setCoinToFetch(event.target.value)}}>
             {coinList.map(({ id, name }) => (
-              <option key={id} value={name}>  {name}</option>
+              <option key={id} value={id}>  {name}</option>
             ))}
           </select>
-          <select className="h-full outline outline-1 outline-gray-500 rounded-lg flex items-center justify-center" onChange={(event) => {
+          <select className={`group flex justify-between ${isDark?"bg-black text-white":"bg-white"} rounded-lg shadow-sm p-2 w-fit uppercase outline-none`} onChange={(event) => {
             setChartSelector(event.target.value); console.log(chartSelector)
           }}>
             <option selected value="line">Line</option>
@@ -92,7 +92,7 @@ function ChartComponent() {
             datasets: [
               {
                 data: historicData.map((coin) => coin[1]),
-                label: `Price ( Past ${days} Days ) in `,
+                label: `Price ( Past ${days} Days ) in ${(cointofetch).charAt(0).toUpperCase()+(cointofetch).slice(1)}`,
                 borderColor: "#1DEE2A",
               },
             ],
