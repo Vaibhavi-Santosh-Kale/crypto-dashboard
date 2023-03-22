@@ -1,6 +1,7 @@
 import axios from "axios";
 import actionTypes from "./types";
 
+
 // exchange rate action
 export const fetchCoinList = () => {
   return (dispatch) => {
