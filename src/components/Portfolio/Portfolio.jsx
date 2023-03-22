@@ -21,7 +21,7 @@ function Portfolio() {
           usePointStyle: true,
           pointStyleWidth: 10,
           pointStyle: "circle",
-          padding: 20,
+          padding: 10,
         },
       },
     },
@@ -97,7 +97,7 @@ function Portfolio() {
           }).format(totalVolume)}
         </span>
       </div>
-      <div className="piechart h-full w-full">
+      <div>
         <Pie data={data} options={options} />
       </div>
     </div>

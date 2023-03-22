@@ -25,12 +25,6 @@ function ChartComponent() {
         setHistoricData(res.data.prices);
         console.log(historicData);
       })
-      .catch((error) => {
-        setTimeout(() => {
-          fetchHistoricData();
-        }, 20000);
-        console.log(error, "api request limit exceed");
-      });
   };
 
   useEffect(() => {
@@ -131,7 +125,9 @@ function ChartComponent() {
               datasets: [
                 {
                   data: historicData.map((coin) => coin[1]),
-                  label: `Price ( Past ${days} Days ) in `,
+                  label: `Price ( Past ${days} Days ) in ${
+                    cointofetch.charAt(0).toUpperCase() + cointofetch.slice(1)
+                  }`,
                   fillColor: [
                     "rgba(0,10,220,0.5)",
                     "rgba(220,0,10,0.5)",
@@ -146,6 +142,7 @@ function ChartComponent() {
             }}
             options={{
               maintainAspectRatio: false,
+              responsive: true,
 
               elements: {
                 point: {

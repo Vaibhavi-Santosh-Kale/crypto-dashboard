@@ -43,11 +43,10 @@ function MarketCap() {
 
   return (
     <div
-      className={`select-none rounded-xl h-full min-w-fit w-full flex-row-2 ${
-        isDark ? "bg-black text-white" : "bg-white"
-      }  shadow-sm hover:cursor-default overflow-hidden`}
+      className={`select-none rounded-xl h-full min-w-fit w-full flex-row-2 ${isDark ? "bg-black text-white" : "bg-white"
+        }  shadow-sm hover:cursor-default overflow-hidden`}
     >
-      <div className="flex justify-center h-[45px]  shadow-sm border-b-2 text-2xl p-1">
+      <div className="flex justify-center h-[45px]  shadow-sm border-b-2 text-2xl p-1 md:text-lg sm:text-sm">
         <span>Cryptocurrency Market Cap</span>
       </div>
       <ul className="h-[calc(100%-45px)] overflow-y-scroll">
@@ -82,13 +81,12 @@ function MarketCap() {
               <>
                 <span
                   key={id}
-                  className={`group p-2 border-b-2 justify-between ${
-                    name.toLowerCase().startsWith(search.toLowerCase())
+                  className={`group p-2 border-b-2 justify-between ${name.toLowerCase().startsWith(search.toLowerCase())
                       ? "flex"
                       : name.toLowerCase().includes(search.toLowerCase())
-                      ? "flex"
-                      : "hidden"
-                  } hover:scale-105 duration-200 hover:bg-gradient-to-r h-fit hover:from-cyan-50 hover:to-blue-300 hover:via-blue-200`}
+                        ? "flex"
+                        : "hidden"
+                    } hover:scale-105 duration-200 hover:bg-gradient-to-r h-fit hover:from-cyan-50 hover:to-blue-300 hover:via-blue-200`}
                 >
                   <div className="flex-col w-full">
                     <div className="flex w-full justify-between">
@@ -133,7 +131,7 @@ function MarketCap() {
                     >
                       <div className="flex flex-col">
                         <div>Total Volume : {total_volume}</div>
-                        <div>Cap Change : {market_cap_change_24h}</div>
+                        <div>Cap Change : {(market_cap_change_24h).toFixed(2)}</div>
                       </div>
                       <div className="flex flex-col">
                         <div className="flex justify-end">
