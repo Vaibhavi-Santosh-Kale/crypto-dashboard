@@ -97,7 +97,7 @@ function Portfolio() {
           }).format(totalVolume)}
         </span>
       </div>
-      <div className="piechart" style={{ width: "95%", height: "100%" }}>
+      <div className="piechart h-full w-full">
         <Pie data={data} options={options} />
       </div>
     </div>
