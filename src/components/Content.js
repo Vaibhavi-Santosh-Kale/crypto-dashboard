@@ -10,8 +10,6 @@ import { useSelector } from "react-redux";
 function Content() {
   const isDark = useSelector((store) => store.themereducer);
   return (
-
-  
     <>
       <div
         className={`h-[calc(100vh-60px)] w-screen p-16 px-36 min-w-fit ${
@@ -27,7 +25,7 @@ function Content() {
             <div className="flex gap-6 h-[45px] text-xl">
               <div className="w-1/12 min-w-fit">
                 <div className="w-full h-full min-w-min overflow-hidden">
-                  <CurrencySelector  />
+                  <CurrencySelector />
                 </div>
               </div>
               <div className="w-11/12">
@@ -48,9 +46,9 @@ function Content() {
                 >
                   <Portfolio />
                 </div>
-                    <div className="flex h-full w-1/2 min-w-fit min-h-fit overflow-hidden">
-                      <Exchange/>
-                    </div>
+                <div className="flex h-full w-1/2 min-w-fit min-h-fit overflow-hidden">
+                  <Exchange />
+                </div>
               </div>
             </div>
           </div>

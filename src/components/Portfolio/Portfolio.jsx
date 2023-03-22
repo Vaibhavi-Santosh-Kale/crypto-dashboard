@@ -7,15 +7,6 @@ ChartJS.register(...registerables);
 
 function Portfolio() {
   const isDark = useSelector((state) => state.themereducer);
-  const port = useSelector((state) => state.portfolio_reducer);
-  // const price = useSelector((state)=>state.marketCap);
-  const lab = port.map(({ name }) => name);
-  const ser = port.map(
-    ({ name, amount }) =>
-      // (((price.find((data)=>data.name===name))).current_price)*amount
-      amount
-  );
-
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -54,19 +45,16 @@ function Portfolio() {
       const dataSet = [];
       await fetch(url)
         .then((data) => {
-          // console.log("Api data", data)
           const res = data.json();
           return res;
         })
         .then((res) => {
-          // console.log("ressss", res)
           for (const val of res) {
-            // total_value += val.current_price;
             dataSet.push(val.current_price);
 
             labelSet.push(val.name);
           }
-          // console.log("dataset1" ,dataSet1)
+
           setData({
             labels: labelSet,
             datasets: [
@@ -81,14 +69,12 @@ function Portfolio() {
               },
             ],
           });
-          // console.log("arrData", dataSet1)
+
           setTotalVolume(
             dataSet.reduce((partialSum, a) => partialSum + a, 0).toFixed(0)
           );
         })
-        .catch((e) => {
-          // console.log("error", e)
-        });
+        .catch((e) => {});
     };
     fetchData();
   }, []);
