@@ -34,7 +34,7 @@ function Content() {
                 <Search />
               </div>
             </div>
-            <div className="h-[calc(100%-45px)] w-full flex flex-col gap-6">
+            <div className="h-[calc(100%-70px)] w-full flex flex-col gap-6">
               <div
                 className={`flex h-2/3 justify-center items-center rounded-lg lg:hidden sm:hidden`}
               >
