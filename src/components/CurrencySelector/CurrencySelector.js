@@ -16,10 +16,6 @@ function CurrencySelector() {
         <select value={state} onChange={(event)=>{            
             dispatch(updatecurr(event.target.value))}}
             className={`group flex justify-between ${isDark?"bg-black text-white":"bg-white"} rounded-lg shadow-sm p-2 w-full uppercase outline-none`}>
-            {/* <option value="inr">INR</option>
-            <option value="usd">USD</option>
-            <option value="eur">EUR</option>
-            <option value="jpy">JPY</option> */}
             {list.map((item)=>
                 <option className='p-2 w-1' value={item}>{item}</option>)}
         </select>
