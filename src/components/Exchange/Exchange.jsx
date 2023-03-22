@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchCoinList } from "../../redux/action";
+import { fetchCoinList } from "../state/actions/fetchCoinList";
 import "./Exchange.css";
 
 function Exchange() {
