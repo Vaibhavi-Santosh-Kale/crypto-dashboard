@@ -1,8 +1,8 @@
-import {SEARCHCHANGE} from "../../constants/actionTypes"
+import { SEARCHCHANGE } from "../../constants/actionTypes";
 
-export const search = (data)=>{
-    return {
-        type:SEARCHCHANGE,
-        payload:data
-    }
-}
+export const search = (data) => {
+  return {
+    type: SEARCHCHANGE,
+    payload: data,
+  };
+};
