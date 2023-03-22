@@ -59,8 +59,9 @@ function Exchange() {
             <div className="flex w-[30%]">
               <select
                 name="currency"
-                // className="bg-slate-200 w-36 h-8 text-center text-lg font-semibold rounded-md list-item"
-                className={`group flex justify-between ${isDark?"bg-black text-white":"bg-slate-200"} rounded-lg shadow-sm p-2 w-full uppercase outline-none`}
+                className={`group flex justify-between ${
+                  isDark ? "bg-black text-white" : "bg-slate-200"
+                } rounded-lg shadow-sm p-2 w-full uppercase outline-none`}
                 onChange={(e) => setSellValue(e.target.value)}
               >
                 <option value="" selected="true" hidden>
@@ -74,7 +75,7 @@ function Exchange() {
                   ))}
               </select>
             </div>
-            <div className= {`h-full w-fit mx-2 `}>
+            <div className={`h-full w-fit mx-2 `}>
               <input
                 type="number"
                 min="0"
@@ -82,7 +83,9 @@ function Exchange() {
                 onChange={(e) => setAmount(e.target.value)}
                 disabled={sell === "Select"}
                 placeholder={"Enter Amount"}
-                className={`w-full h-full rounded-md border-2 pl-3 ${isDark?"bg-black text-white":"bg-slate-200"}`} 
+                className={`w-full h-full rounded-md border-2 pl-3 ${
+                  isDark ? "bg-black text-white" : "bg-slate-200"
+                }`}
               />
             </div>
           </div>
@@ -95,7 +98,9 @@ function Exchange() {
             <div className="flex w-[30%] ">
               <select
                 name="currency"
-                className={`group flex justify-between ${isDark?"bg-black text-white":"bg-slate-200"} rounded-lg shadow-sm p-2 w-full uppercase outline-none`}
+                className={`group flex justify-between ${
+                  isDark ? "bg-black text-white" : "bg-slate-200"
+                } rounded-lg shadow-sm p-2 w-full uppercase outline-none`}
                 onChange={(e) => setBuyValue(e.target.value)}
               >
                 <option value="" selected="true" hidden>
@@ -103,7 +108,7 @@ function Exchange() {
                 </option>
                 {coin &&
                   Object.values(coin).map((d, k) => (
-                    <option key={k}  value={d.value}>
+                    <option key={k} value={d.value}>
                       {d.name}
                     </option>
                   ))}
