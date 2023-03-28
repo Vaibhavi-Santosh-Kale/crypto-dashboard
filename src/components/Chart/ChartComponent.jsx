@@ -102,6 +102,7 @@ function ChartComponent() {
             }}
             options={{
               maintainAspectRatio: false,
+              responsive: true,
 
               elements: {
                 point: {
