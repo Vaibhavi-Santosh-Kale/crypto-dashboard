@@ -14,7 +14,6 @@ function ChartComponent() {
   const [days, setDays] = useState("1");
   const currencySelector = useSelector((state) => state.updatecurr);
   const [cointofetch, setCoinToFetch] = useState("bitcoin");
-  console.log(cointofetch);
 
   const fetchHistoricData = async () => {
     await axios
@@ -23,7 +22,6 @@ function ChartComponent() {
       )
       .then((res) => {
         setHistoricData(res.data.prices);
-        console.log(historicData);
       })
   };
 

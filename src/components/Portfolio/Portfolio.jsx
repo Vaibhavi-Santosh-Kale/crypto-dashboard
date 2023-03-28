@@ -96,7 +96,7 @@ function Portfolio() {
           }).format(totalVolume)}
         </span>
       </div>
-      <div>
+      <div className="m-auto">
         <Pie data={data} options={options} />
       </div>
     </div>
