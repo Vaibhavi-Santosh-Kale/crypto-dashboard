@@ -17,7 +17,7 @@ function CurrencySelector() {
             dispatch(updatecurr(event.target.value))}}
             className={`group flex justify-between ${isDark?"bg-black text-white":"bg-white"} rounded-lg shadow-sm p-2 w-full uppercase outline-none`}>
             {list.map((item)=>
-                <option className='p-2 w-1' value={item}>{item}</option>)}
+                <option className='p-2 w-1' key={item} value={item}>{item}</option>)}
         </select>
     )
 }
