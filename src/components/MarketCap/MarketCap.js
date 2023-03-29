@@ -18,7 +18,6 @@ function MarketCap() {
 
   useEffect(() => {
     dispatch(marketloadchange(true));
-    console.log("i am called");
     fetchmarketdata();
   }, [curr]);
 
@@ -30,7 +29,6 @@ function MarketCap() {
       .then((response) => {
         dispatch(updatecap(response.data));
         dispatch(marketloadchange(false));
-        console.log("i am async called");
       })
       .catch((error) => {
         dispatch(marketloadchange(true));

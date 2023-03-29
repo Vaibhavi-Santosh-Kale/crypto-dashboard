@@ -8,11 +8,10 @@ ChartJS.register(...registerables);
 function Portfolio() {
   const isDark = useSelector((state) => state.themereducer);
   const options = {
-    responsive: true,
-    maintainAspectRatio: false,
-    animations: {
-      animationScale: true,
-    },
+    responsive: false,
+    // animations: {
+    //   animationScale: true,
+    // },
     plugins: {
       legend: {
         display: true,
@@ -97,7 +96,7 @@ function Portfolio() {
           }).format(totalVolume)}
         </span>
       </div>
-      <div>
+      <div className="m-auto">
         <Pie data={data} options={options} />
       </div>
     </div>

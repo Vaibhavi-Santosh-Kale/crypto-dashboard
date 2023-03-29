@@ -11,7 +11,6 @@ function CurrencySelector() {
     const state = useSelector((store) => store.updatecurr);
     const isDark = useSelector((store)=>store.themereducer);
     const dispatch = useDispatch();
-    console.log(state);
     return (
         <select value={state} onChange={(event)=>{            
             dispatch(updatecurr(event.target.value))}}
